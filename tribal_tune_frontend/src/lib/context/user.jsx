@@ -12,10 +12,10 @@ export function UserProvider(props) {
   const [user, setUser] = useState(null);
 
   async function login(email, password) {
-    const loggedIn = await account.createEmailSession(email, password);
+    const loggedIn = await account.createEmailPasswordSession(email, password);
     setUser(loggedIn);
   }
-p
+
   async function logout() {
     await account.deleteSession("current");
     setUser(null);
