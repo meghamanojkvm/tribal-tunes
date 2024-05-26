@@ -16,7 +16,7 @@ export const Card = ({ title, description, imageUrl, profileUrl }) => {
           href={profileUrl}
           className="mt-2 inline-flex cursor-pointer items-center text-sm font-semibold text-white"
         >
-          View Instrument →
+          View Details →
         </a>
       </div>
     </div>
