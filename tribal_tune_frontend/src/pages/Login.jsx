@@ -31,17 +31,20 @@ export function Login() {
           <button
             className="button"
             type="button"
-            onClick={() => user.login(email, password)}
+            onClick={() => {
+              console.log(user)
+              user.login(email, password)
+            }}
           >
             Login
           </button>
-          <button
+          {/* <button
             className="button"
             type="button"
             onClick={() => user.register(email, password)}
           >
             Register
-          </button>
+          </button> */}
         </div>
       </form>
     </section>

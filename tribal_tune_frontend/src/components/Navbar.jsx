@@ -5,12 +5,16 @@ export const Navbar= () => {
   
     return (
       <nav>
-        <a href="/">Idea tracker</a>
+        <a href="/">Home</a>
+        <a href="/instruments">Instruments</a>
         <div>
           {user.current ? (
             <>
               <span>{user.current.email}</span>
-              <button type="button" onClick={() => user.logout()}>
+              <button type="button" onClick={() => {
+                console.log(user)
+                user.logout()
+              }}>
                 Logout
               </button>
             </>
