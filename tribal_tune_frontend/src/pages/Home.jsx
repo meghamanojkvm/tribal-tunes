@@ -1,4 +1,3 @@
-import { TitleHeader } from "../components/TitleHeader"
 
 export const Home  = () => {
     return(
