@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { TitleHeader } from "../components/TitleHeader";
 import { InstrumentSection } from "../components/InstrumentSection"; // Import the new component
 
 export const AllInstrument = () => {
@@ -100,7 +99,6 @@ export const AllInstrument = () => {
 
   return (
     <div>
-      <TitleHeader />
       <section>
         {/* Main image section */}
         <div className="relative py-12 bg-white sm:py-16 lg:py-20">
