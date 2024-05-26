@@ -1,4 +1,4 @@
-import { TitleHeader } from "../components/TitleHeader"
+
 import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
