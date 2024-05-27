@@ -1,8 +1,9 @@
 import { UserProvider, useUser } from "../lib/context/user";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
   const user = useUser();
-
+  const navigate = useNavigate();
   return (
     <div class="relative w-full bg-white  py-2">
       <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
@@ -64,7 +65,7 @@ export const Navbar = () => {
                 </button>
               </>
             ) : (
-              <a href="/login">Login</a>
+              <button onClick={() => navigate("/login")}>Login</button>
             )}
           </div>
         </div>
