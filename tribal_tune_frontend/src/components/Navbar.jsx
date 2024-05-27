@@ -5,19 +5,19 @@ export const Navbar = () => {
   const user = useUser();
   const navigate = useNavigate();
   return (
-    <div class="relative w-full bg-white  py-2">
-      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
-        <div class="inline-flex items-center space-x-2">
-          <a href="/" class="font-bold text-xl">
+    <div className="relative w-full bg-white  py-2">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+        <div className="inline-flex items-center space-x-2">
+          <a href="/" className="font-bold text-xl">
             Tribal Tunes
           </a>
         </div>
-        <div class="hidden lg:block ">
-          <ul class="inline-flex space-x-12 ">
+        <div className="hidden lg:block ">
+          <ul className="inline-flex space-x-12 ">
             <li>
               <a
                 href="/"
-                class="text-sm font-semibold text-gray-800 hover:text-gray-900"
+                className="text-sm font-semibold text-gray-800 hover:text-gray-900"
               >
                 Home
               </a>
@@ -25,15 +25,15 @@ export const Navbar = () => {
             <li>
               <a
                 href="/instruments"
-                class="text-sm font-semibold text-gray-800 hover:text-gray-900"
+                className="text-sm font-semibold text-gray-800 hover:text-gray-900"
               >
                 Instruments
               </a>
             </li>
             <li>
               <a
-                href="#"
-                class="text-sm font-semibold text-gray-800 hover:text-gray-900"
+                href="/aboutUs"
+                className="text-sm font-semibold text-gray-800 hover:text-gray-900"
               >
                 About
               </a>
@@ -41,19 +41,18 @@ export const Navbar = () => {
             <li>
               <a
                 href="#"
-                class="text-sm font-semibold text-gray-800 hover:text-gray-900"
+                className="text-sm font-semibold text-gray-800 hover:text-gray-900"
               >
                 Contact
               </a>
             </li>
           </ul>
         </div>
-        <div class="hidden lg:block">
-          <div className="rounded-md bg-amber-950 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
+        <div className="hidden lg:block">
+          <div className="rounded-md bg-amber-950 hover:bg-amber-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
             {" "}
             {user.current ? (
               <>
-                <span>{user.current.email}</span>
                 <button
                   type="button"
                   onClick={() => {
