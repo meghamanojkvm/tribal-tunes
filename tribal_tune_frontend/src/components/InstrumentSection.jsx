@@ -12,7 +12,7 @@ export const InstrumentSection = ({
 
   return (
     <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-      <h2 className="mt-10 mb-4 text-2xl font-semibold text-black text-center">
+      <h2 className="mt-10 mb-4 text-2xl font-semibold text-gray-900 text-center font-serif bg-brown-500 py-2 px-4 rounded-lg shadow-lg">
         {sectionTitle}
       </h2>
       <div className="instrument-container flex items-center justify-center">
