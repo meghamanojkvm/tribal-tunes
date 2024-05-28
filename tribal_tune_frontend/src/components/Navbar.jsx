@@ -7,44 +7,57 @@ export const Navbar = () => {
   return (
     <div className="relative w-full bg-white  py-2">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
-        <div className="inline-flex items-center space-x-2">
-          <a href="/" className="font-bold text-xl">
+        <div className="inline-flex items-center space-x-2 hover:text-gray-800 text-amber-900">
+          <button
+            className="font-bold text-xl"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
             Tribal Tunes
-          </a>
+          </button>
         </div>
         <div className="hidden lg:block ">
           <ul className="inline-flex space-x-12 ">
             <li>
-              <a
-                href="/"
-                className="text-sm font-semibold text-gray-800 hover:text-gray-900"
+              <button
+                className="text-sm font-semibold text-gray-800 hover:text-amber-800"
+                onClick={() => {
+                  navigate("/");
+                }}
               >
                 Home
-              </a>
+              </button>
             </li>
             <li>
-              <a
-                href="/instruments"
-                className="text-sm font-semibold text-gray-800 hover:text-gray-900"
+              <button
+                className="text-sm font-semibold text-gray-800 hover:text-amber-800"
+                onClick={() => {
+                  navigate("/instruments");
+                }}
               >
                 Instruments
-              </a>
+              </button>
             </li>
             <li>
-              <a
-                href="/aboutUs"
-                className="text-sm font-semibold text-gray-800 hover:text-gray-900"
+              <button
+                className="text-sm font-semibold text-gray-800 hover:text-amber-800"
+                onClick={() => {
+                  navigate("/aboutUs");
+                }}
               >
                 About
-              </a>
+              </button>
             </li>
             <li>
-              <a
-                href="#"
-                className="text-sm font-semibold text-gray-800 hover:text-gray-900"
+              <button
+                className="text-sm font-semibold text-gray-800 hover:text-amber-800"
+                onClick={() => {
+                  navigate("#");
+                }}
               >
                 Contact
-              </a>
+              </button>
             </li>
           </ul>
         </div>
