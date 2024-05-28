@@ -89,10 +89,23 @@ class Service {
         }
     }
 
-    async uploadFile(file) {
+    async uploadImageFile(file) {
         try {
             return await this.bucket.createFile(
-                conf.appwriteBucketId,
+                conf.appwriteImageBucketId,
+                ID.unique(),
+                file
+            );
+        } catch (error) {
+            console.error("Appwrite service :: uploadFile :: error", error);
+            return false;
+        }
+    }
+
+    async uploadAudioFile(file) {
+        try {
+            return await this.bucket.createFile(
+                conf.appwriteAudioBucketId,
                 ID.unique(),
                 file
             );

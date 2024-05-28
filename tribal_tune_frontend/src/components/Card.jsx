@@ -2,18 +2,18 @@ import React from "react";
 import { useUser } from "../lib/context/user";
 import { useNavigate } from "react-router-dom";
 
-export const Card = ({ title, description, image }) => {
+export const Card = (card) => {
   const user = useUser();
   const navigate = useNavigate();
-
+  console.log(card.title);
   // Assuming you have a profileUrl defined somewhere
   const profileUrl = "#"; // Replace with the actual profile URL
 
   return (
     <div className="relative h-[300px] w-[300px] rounded-md my-6">
       <img
-        src={image}
-        alt={title}
+        src={card.image}
+        alt={card.title}
         className="z-0 h-full w-full rounded-md object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
@@ -44,10 +44,10 @@ export const Card = ({ title, description, image }) => {
       ) : null}
       {/* add button ends */}
       <div className="absolute bottom-4 left-4 text-left">
-        <h1 className="text-lg font-semibold text-white">{title}</h1>
-        <p className="mt-2 text-sm text-gray-300">{description}</p>
+        <h1 className="text-lg font-semibold text-white">{card.title}</h1>
+        <p className="mt-2 text-sm text-gray-300">{card.description}</p>
         <button
-          href={profileUrl} // Update the href with the actual profile URL
+          onClick={() => navigate("/instruments/:"+ card.$id)} // Update the href with the actual profile URL
           className="mt-2 inline-flex items-center text-sm font-semibold text-white"
         >
           View Details →

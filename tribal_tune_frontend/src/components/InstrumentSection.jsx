@@ -19,7 +19,7 @@ export const InstrumentSection = ({
       const response = await service.getPostsByCategory(category);
       if (response) {
         setItems(response.documents); // Assuming the response contains a 'documents' array
-        console.log(response.documents);
+        console.log(response.documents[0].$id);
       }
       setLoading(false);
     };
