@@ -46,7 +46,7 @@ export const Card = ({ title, description, image }) => {
       <div className="absolute bottom-4 left-4 text-left">
         <h1 className="text-lg font-semibold text-white">{title}</h1>
         <p className="mt-2 text-sm text-gray-300">{description}</p>
-        <a
+        <button
           href={profileUrl} // Update the href with the actual profile URL
           className="mt-2 inline-flex items-center text-sm font-semibold text-white"
         >
