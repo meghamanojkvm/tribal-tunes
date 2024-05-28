@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { InstrumentSection } from "../components/InstrumentSection"; // Import the new component
-
+import { InstrumentSection } from "../components/InstrumentSection";
 export const AllInstrument = () => {
   const [currentStringIndex, setCurrentStringIndex] = useState(0);
   const [currentBlownIndex, setCurrentBlownIndex] = useState(0);
@@ -8,23 +7,23 @@ export const AllInstrument = () => {
     {
       title: "Veena",
       imageUrl: "./src/assets/Veena.jpg",
-      profileUrl: "http://localhost:3000/instruments/id#",
-      // profileUrl: "https://example.com/profiles/delba",
+      id: "1",
+      // id: "https://example.com/profiles/delba",
     },
     {
       title: "Santoor",
       imageUrl: "./src/assets/santoor.jpg",
-      profileUrl: "http://localhost:3000/instruments/id#",
+      id: "2",
     },
     {
       title: "Tumbi",
       imageUrl: "./src/assets/Tumbi.jpg",
-      profileUrl: "http://localhost:3000/instruments/id#",
+      id: "3",
     },
     {
       title: "Sarod",
       imageUrl: "./src/assets/Sarod.jpg",
-      profileUrl: "http://localhost:3000/instruments/id#",
+      id: "4",
     },
   ];
 
@@ -32,22 +31,22 @@ export const AllInstrument = () => {
     {
       title: "Flute",
       imageUrl: "./src/assets/flute.jpg",
-      profileUrl: "http://localhost:3000/instruments/id#",
+      id: "5",
     },
     {
       title: "Shankh",
       imageUrl: "./src/assets/shankh.jpeg",
-      profileUrl: "http://localhost:3000/instruments/id#",
+      id: "6",
     },
     {
       title: "Shehnai",
       imageUrl: "./src/assets/shehnai.jpeg",
-      profileUrl: "http://localhost:3000/instruments/id#",
+      id: "7",
     },
     {
       title: "Sundri",
       imageUrl: "./src/assets/sundri.png",
-      profileUrl: "http://localhost:3000/instruments/id#",
+      id: "8",
     },
   ];
 
@@ -76,7 +75,7 @@ export const AllInstrument = () => {
   };
 
   return (
-    <div className="bg-gradient-to-t from-gray-100 to-white">
+    <div className="bg-gradient-to-t from-gray-200 to-white">
       <section>
         {/* Main image section */}
         <div className="relative py-20 bg-white sm:py-24 lg:py-28">
@@ -94,7 +93,7 @@ export const AllInstrument = () => {
             <div className="max-w-lg mx-auto text-center xl:max-w-2xl">
               <h1 className="text-xl font-semibold text-white sm:text-4xl xl:text-3xl font-serif mt-12 mb-12">
                 Discover the rich heritage and timeless beauty of traditional
-                instruments from around the world.
+                instruments.
               </h1>
               <p className="max-w-lg mx-auto mt-6 text-base font-normal leading-7 text-gray-300"></p>
 
@@ -148,7 +147,7 @@ export const AllInstrument = () => {
                 bg-amber-950
                 border border-transparent
                 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white
-                hover:bg-gray-700
+                hover:bg-amber-900
                 rounded-md
             "
                   >
