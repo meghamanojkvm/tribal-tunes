@@ -75,7 +75,7 @@ export const AllInstrument = () => {
   };
 
   return (
-    <div className="bg-gradient-to-t from-gray-200 to-white">
+    <div className="bg-gradient-to-t from-gray-100 to-white">
       <section>
         {/* Main image section */}
         <div className="relative py-20 bg-white sm:py-24 lg:py-28">

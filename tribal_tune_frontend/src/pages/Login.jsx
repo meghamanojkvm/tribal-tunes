@@ -59,7 +59,7 @@ export const Login = () => {
                 <div>
                   <button
                     type="button"
-                    className="inline-flex w-full items-center justify-center rounded-md bg-amber-950 px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
+                    className="inline-flex w-full items-center justify-center rounded-md bg-amber-950 px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-amber-900"
                     onClick={() => {
                       console.log(user);
                       user.login(email, password);

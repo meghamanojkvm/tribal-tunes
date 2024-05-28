@@ -9,7 +9,6 @@ import { ShowInstrument } from "./pages/ShowInstrument";
 
 import { AboutUs } from "./pages/AboutUs";
 
-
 function App() {
   return (
     <UserProvider>
@@ -20,10 +19,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="/addinstrument" element={<AddInstrument />} />
-
           <Route path="/instruments/:id" element={<ShowInstrument />} />
-          <Route path="/aboutUs" element={<AboutUs/>} />
-
+          <Route path="/aboutUs" element={<AboutUs />} />
         </Routes>
       </BrowserRouter>
     </UserProvider>

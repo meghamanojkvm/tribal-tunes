@@ -22,7 +22,12 @@ export const Home = () => {
           >
             Listen Now
           </button>
-          <button className="bg-white hover:bg-gray-100 text-gray-800 font-bold py-2 px-4 border border-gray-400 rounded">
+          <button
+            className="bg-white hover:bg-gray-100 text-gray-800 font-bold py-2 px-4 border border-gray-400 rounded"
+            onClick={() => {
+              navigate("/aboutUs");
+            }}
+          >
             Learn More
           </button>
         </div>
