@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import service from "../appwrite/service";
 import QrComp from "../components/QrComp";
 import Header from "../components/Header";
 import ImageSection from "../components/ImageSection";
@@ -6,12 +8,34 @@ import Description from "../components/Description";
 import Audio from "../components/Audio";
 
 export const ShowInstrument = () => {
-  const [qrcode, setqrcode] = useState(false);
-  const qrclick = () => {
-    setqrcode((prev) => !prev);
-  };
+  const { id } = useParams();
+  const [instrument, setInstrument] = useState(null);
+  const [qrcode, setQrcode] = useState(false);
+  useEffect(() => {
+    const fetchInstrument = async () => {
+      try {
+        const response = await service.getPost(id.substring(1));
 
-  const descriptionContent = `The sarod, a fretless string instrument, features a hollow wooden body with a skin-covered soundboard. Its long, narrow neck enables intricate finger movements, crucial for producing its emotive melodies. With around 20 to 25 metal strings, including sympathetic strings, the sarod resonates deeply, enriched by techniques like slides and hammer-ons.`;
+        if (response) {
+          setInstrument(response);
+        } else {
+          console.error(`Instrument with ID ${id} not found.`);
+        }
+      } catch (error) {
+        console.error("Error fetching instrument:", error);
+      }
+    };
+
+    fetchInstrument();
+  }, [id]);
+
+  if (!instrument) {
+    return <div>Loading...</div>;
+  }
+
+  const qrclick = () => {
+    setQrcode((prev) => !prev);
+  };
 
   const descriptionSections = [
     {
@@ -54,22 +78,21 @@ export const ShowInstrument = () => {
           </div>
         ) : null}
         <Header
-          title="SAROD"
+          title={instrument.title}
           className="text-4xl font-bold text-amber-950 text-center shadow-lg pb-6"
         />
-        {/* Center Main Heading */}
         <div className="ml-4 mr-4 p-10 flex flex-col md:flex-row h-auto items-center justify-center text-justify space-y-8 md:space-y-0 md:space-x-10">
           <ImageSection
-            src="/src/assets/Sarod.jpg"
-            alt="sarod"
+            src={instrument.image}
+            alt={instrument.title}
             width="100%"
             height="auto"
             border="border-2 border-gray-600"
             rounded="rounded-lg"
-          />{" "}
+          />
           <Description
             title="Description"
-            content={descriptionContent}
+            content={instrument.description}
             sections={descriptionSections}
             titleClassName="text-2xl font-bold text-amber-950 mb-4"
             contentClassName="text-lg text-gray-700 leading-relaxed"
@@ -80,7 +103,7 @@ export const ShowInstrument = () => {
         <div className="mt-10 ml-24 flex items-center justify-left space-x-12">
           <Header title="Audio" className="text-3xl font-bold text-amber-950" />
           <Audio
-            src="/src/assets/ringtone-shankh-1101.mp3"
+            src={instrument.audio}
             className="w-full max-w-5xl"
           />
         </div>

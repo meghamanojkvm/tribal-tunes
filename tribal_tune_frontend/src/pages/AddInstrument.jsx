@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
+import service from "../appwrite/service";
 
 export const AddInstrument = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [selectedAudio, setSelectedAudio] = useState(null);
   const [audioPreview, setAudioPreview] = useState(null);
+  const [instrumentName, setInstrumentName] = useState("");
+  const [instrumentCategory, setInstrumentCategory] = useState("");
+  const [instrumentDescription, setInstrumentDescription] = useState("");
 
   useEffect(() => {
     if (!selectedFile) {
@@ -42,15 +46,53 @@ export const AddInstrument = () => {
     }
   };
 
+  const handleAddInstrument = async () => {
+    if (!selectedFile || !selectedAudio || !instrumentName || !instrumentCategory || !instrumentDescription) {
+      alert("Please fill out all fields and upload both image and audio files.");
+      return;
+    }
+
+    try {
+      const imageFile = await service.uploadImageFile(selectedFile);
+      const audioFile = await service.uploadAudioFile(selectedAudio);
+
+      if (imageFile && audioFile) {
+        const response = await service.createPost({
+          title: instrumentName,
+          slug: instrumentName.toLowerCase().replace(/ /g, "-"),
+          description: instrumentDescription,
+          image: imageFile.$url,
+          audio: audioFile.$url,
+        });
+
+        if (response.$id) {
+          alert("Instrument added successfully!");
+          // Clear form state
+          setSelectedFile(null);
+          setPreview(null);
+          setSelectedAudio(null);
+          setAudioPreview(null);
+          setInstrumentName("");
+          setInstrumentCategory("");
+          setInstrumentDescription("");
+        } else {
+          alert("Failed to add instrument. Please try again later.");
+        }
+      }
+    } catch (error) {
+      console.error("Error adding instrument:", error);
+      alert("Failed to add instrument. Please try again later.");
+    }
+  };
+
   return (
     <section
-      className="bg-cover bg-center "
+      className="bg-cover bg-center"
       style={{ backgroundImage: 'url("")' }}
     >
-      {" "}
-      <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-8 ">
+      <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-8">
         <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
-          <form action="#" method="POST" className="mt-8">
+          <form className="mt-8">
             <div>
               <h2 className="text-center text-2xl font-bold leading-tight text-amber-950 mb-4">
                 UPDATE / ADD INSTRUMENTS
@@ -60,8 +102,7 @@ export const AddInstrument = () => {
                   htmlFor="image"
                   className="text-base font-medium text-gray-900"
                 >
-                  {" "}
-                  Instrument Image{" "}
+                  Instrument Image
                 </label>
                 <div className="mt-2">
                   <input
@@ -87,8 +128,7 @@ export const AddInstrument = () => {
                   htmlFor="name"
                   className="text-base font-medium text-gray-900"
                 >
-                  {" "}
-                  Instrument Name{" "}
+                  Instrument Name
                 </label>
                 <div className="mt-2">
                   <input
@@ -96,6 +136,8 @@ export const AddInstrument = () => {
                     type="text"
                     placeholder="Instrument Name"
                     id="name"
+                    value={instrumentName}
+                    onChange={(e) => setInstrumentName(e.target.value)}
                   />
                 </div>
               </div>
@@ -109,6 +151,8 @@ export const AddInstrument = () => {
                 <select
                   className=" mt-4 flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
                   id="category"
+                  value={instrumentCategory}
+                  onChange={(e) => setInstrumentCategory(e.target.value)}
                 >
                   <option value="">Select Category</option>
                   <option value="String">String</option>
@@ -123,8 +167,7 @@ export const AddInstrument = () => {
                   htmlFor="description"
                   className="text-base font-medium text-gray-900"
                 >
-                  {" "}
-                  Instrument Description{" "}
+                  Instrument Description
                 </label>
                 <div className="mt-2">
                   <textarea
@@ -132,6 +175,8 @@ export const AddInstrument = () => {
                     placeholder="Write a description of the instrument"
                     id="description"
                     rows="4"
+                    value={instrumentDescription}
+                    onChange={(e) => setInstrumentDescription(e.target.value)}
                   ></textarea>
                 </div>
               </div>
@@ -140,8 +185,7 @@ export const AddInstrument = () => {
                   htmlFor="audio"
                   className="text-base font-medium text-gray-900"
                 >
-                  {" "}
-                  Instrument Audio{" "}
+                  Instrument Audio
                 </label>
                 <div className="mt-2">
                   <input
@@ -166,6 +210,7 @@ export const AddInstrument = () => {
                 <button
                   type="button"
                   className="inline-flex w-full items-center justify-center rounded-md bg-amber-950 px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-amber-900"
+                  onClick={handleAddInstrument}
                 >
                   Add Instrument{" "}
                   <svg
