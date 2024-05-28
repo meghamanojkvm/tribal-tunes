@@ -7,23 +7,23 @@ export const AllInstrument = () => {
     {
       title: "Veena",
       imageUrl: "./src/assets/Veena.jpg",
-      profileUrl: "http://localhost:3000/instruments/id#",
-      // profileUrl: "https://example.com/profiles/delba",
+      id: "1",
+      // id: "https://example.com/profiles/delba",
     },
     {
       title: "Santoor",
       imageUrl: "./src/assets/santoor.jpg",
-      profileUrl: "http://localhost:3000/instruments/id#",
+      id: "2",
     },
     {
       title: "Tumbi",
       imageUrl: "./src/assets/Tumbi.jpg",
-      profileUrl: "http://localhost:3000/instruments/id#",
+      id: "3",
     },
     {
       title: "Sarod",
       imageUrl: "./src/assets/Sarod.jpg",
-      profileUrl: "http://localhost:3000/instruments/id#",
+      id: "4",
     },
   ];
 
@@ -31,22 +31,22 @@ export const AllInstrument = () => {
     {
       title: "Flute",
       imageUrl: "./src/assets/flute.jpg",
-      profileUrl: "http://localhost:3000/instruments/id#",
+      id: "5",
     },
     {
       title: "Shankh",
       imageUrl: "./src/assets/shankh.jpeg",
-      profileUrl: "http://localhost:3000/instruments/id#",
+      id: "6",
     },
     {
       title: "Shehnai",
       imageUrl: "./src/assets/shehnai.jpeg",
-      profileUrl: "http://localhost:3000/instruments/id#",
+      id: "7",
     },
     {
       title: "Sundri",
       imageUrl: "./src/assets/sundri.png",
-      profileUrl: "http://localhost:3000/instruments/id#",
+      id: "8",
     },
   ];
 

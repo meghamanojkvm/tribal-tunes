@@ -9,7 +9,6 @@ import Audio from '../components/Audio';
 
 export const ShowInstrument = () => {
   const [qrcode, setqrcode] = useState(false);
-
   const qrclick = () => {
     setqrcode((prev) => !prev);
   };
@@ -49,7 +48,7 @@ export const ShowInstrument = () => {
           <Description title="Description" content={descriptionContent} sections={descriptionSections} />
         </div>
         <Header title="Audio" />
-        <Audio src="https://your-audio-source-url.com" />
+        <Audio src="" />
       </section>
     </div>
   );

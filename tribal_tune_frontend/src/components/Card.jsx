@@ -2,7 +2,7 @@ import React from "react";
 import { UserProvider, useUser } from "../lib/context/user";
 import { useNavigate } from "react-router-dom";
 
-export const Card = ({ title, description, imageUrl, profileUrl }) => {
+export const Card = ({ title, description, imageUrl, id }) => {
   const user = useUser();
   const navigate = useNavigate();
 
@@ -45,12 +45,12 @@ export const Card = ({ title, description, imageUrl, profileUrl }) => {
         <p className="mt-2 text-sm text-gray-300">{description}</p>
 
 
-        <a
-          href={profileUrl}
+        <button
+          onClick={() => navigate("/instruments/"+ id)}
           className="mt-2 inline-flex cursor-pointer items-center text-m font-semibold text-white hover:text-amber-700"
         >
           View Details →
-        </a>
+        </button>
       </div>
     </div>
   );
