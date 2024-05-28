@@ -6,6 +6,8 @@ export const Card = ({ title, description, imageUrl, profileUrl }) => {
   const user = useUser();
   const navigate = useNavigate();
 
+
+
   return (
     <div className="relative h-[300px] w-[300px] rounded-md my-4">
       {/* add button*/}
@@ -38,8 +40,11 @@ export const Card = ({ title, description, imageUrl, profileUrl }) => {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
       <div className="absolute bottom-4 left-4 text-left">
-        <h1 className="text-2xl font-semibold text-white">{title}</h1>
-        {/* <p className="mt-2 text-sm text-gray-300">{description}</p> */}
+
+        <h1 className="text-lg font-semibold text-white">{title}</h1>
+        <p className="mt-2 text-sm text-gray-300">{description}</p>
+
+
         <a
           href={profileUrl}
           className="mt-2 inline-flex cursor-pointer items-center text-m font-semibold text-white hover:text-amber-700"

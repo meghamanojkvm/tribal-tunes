@@ -1,6 +1,11 @@
-import React from "react";
-import { useState } from "react";
-import QrComp from "../components/QrComp";
+
+import React, { useState } from 'react';
+import QrComp from '../components/QrComp';
+import Header from '../components/Header';
+import ImageSection from '../components/ImageSection';
+import Description from '../components/Description';
+import Audio from '../components/Audio';
+
 
 export const ShowInstrument = () => {
   const [qrcode, setqrcode] = useState(false);
@@ -9,32 +14,25 @@ export const ShowInstrument = () => {
     setqrcode((prev) => !prev);
   };
 
+  const descriptionContent = `The guitar is a versatile and popular stringed instrument used in a wide range of musical genres, from classical and flamenco to rock, jazz, and pop. It typically has six strings, although there are variations with four, seven, twelve, and other numbers of strings. The two main types of guitars are acoustic and electric, each with distinct characteristics and uses.`;
+
+  const descriptionSections = [
+    {
+      heading: 'Acoustic Guitar',
+      items: [
+        'Types: Classical, steel-string, and archtop.',
+        'Construction: Hollow body that amplifies the sound acoustically'
+      ]
+    }
+  ];
+
   return (
     <div className="w-full">
-      <header className="relative w-full border-b bg-white pb-4 flex">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2">
-          <div className="inline-flex items-center space-x-2"></div>
-        </div>
-      </header>
-      <div className="flex flex-right mr-4" onClick={qrclick}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="size-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 3.75 9.375v-4.5ZM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5ZM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 13.5 9.375v-4.5Z"
-          />
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M6.75 6.75h.75v.75h-.75v-.75ZM6.75 16.5h.75v.75h-.75v-.75ZM16.5 6.75h.75v.75h-.75v-.75ZM13.5 13.5h.75v.75h-.75v-.75ZM13.5 19.5h.75v.75h-.75v-.75ZM19.5 13.5h.75v.75h-.75v-.75ZM19.5 19.5h.75v.75h-.75v-.75ZM16.5 16.5h.75v.75h-.75v-.75Z"
-          />
+      <div className="flex justify-end mr-4" onClick={qrclick}>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-6 w-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 3.75 9.375v-4.5ZM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5ZM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0 1 13.5 9.375v-4.5Z" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75ZM6.75 16.5h.75v.75h-.75v-.75ZM16.5 6.75h.75v.75h-.75v-.75ZM13.5 13.5h.75v.75h-.75v-.75ZM13.5 19.5h.75v.75h-.75v-.75ZM19.5 13.5h.75v.75h-.75v-.75ZM19.5 19.5h.75v.75h-.75v-.75ZM16.5 16.5h.75v.75h-.75v-.75Z" />
+
         </svg>
       </div>
 
@@ -42,47 +40,17 @@ export const ShowInstrument = () => {
         {qrcode ? (
           <div className="flex items-center justify-center m-4">
             <QrComp url={window.location.href} />
+
           </div>
         ) : null}
-        <div className="relative">
-          <div className="mx-auto max-w-xl lg:max-w-7xl">
-            <div className="mx-auto mb-14 max-w-2xl text-center">
-              <h1 className="text-5xl font-bold">Instrument name</h1>
-            </div>
-            <div className="my-18 -mx-4 flex flex-wrap px-4 items-center">
-              <div className="mb-12 w-full px-4 lg:mb-0 lg:w-1/2 lg:ml-auto flex justify-end">
-                <a className="group block" href="#">
-                  <img
-                    className="mr-12 block h-96 w-96 rounded-lg object-cover"
-                    src="/src/assets/Guitar.avif"
-                    alt="Instrument"
-                  />
-                </a>
-              </div>
-              <div className="w-full px-4 lg:w-1/2 lg:ml-0">
-                <h4 className="mb-5 text-3xl font-semibold text-gray-900">
-                  Description
-                </h4>
-                <p className="max-w-xl text-lg text-gray-500">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit
-                  exercitation veniam consequat sunt nostrud amet. Lorem ipsum
-                  dolor sit amet consectetur adipisicing elit. Adipisci optio
-                  nihil totam voluptas dolorem vel esse magnam sed praesentium
-                  aliquam.
-                </p>
-              </div>
-            </div>
-            <div className="w-full px-4 lg:w-1/2">
-              <h4 className="mb-5 text-3xl font-semibold text-gray-900">
-                Audio
-              </h4>
-              {/* Add AudioPlayer component here */}
-            </div>
-          </div>
+        <Header title="Instrument name" />
+        <div className="bg-[#f5f5dc] p-10 flex h-auto items-center justify-center">
+          <ImageSection src="/src/assets/shankh.jpeg" alt="Guitar" />
+          <Description title="Description" content={descriptionContent} sections={descriptionSections} />
         </div>
+        <Header title="Audio" />
+        <Audio src="https://your-audio-source-url.com" />
       </section>
-      <hr className="my-8" />
     </div>
   );
 };

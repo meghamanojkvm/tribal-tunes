@@ -7,22 +7,23 @@ export const AllInstrument = () => {
     {
       title: "Veena",
       imageUrl: "./src/assets/Veena.jpg",
-      profileUrl: "https://example.com/profiles/delba",
+      profileUrl: "http://localhost:3000/instruments/id#",
+      // profileUrl: "https://example.com/profiles/delba",
     },
     {
       title: "Santoor",
       imageUrl: "./src/assets/santoor.jpg",
-      profileUrl: "https://example.com/profiles/instrument-3",
+      profileUrl: "http://localhost:3000/instruments/id#",
     },
     {
       title: "Tumbi",
       imageUrl: "./src/assets/Tumbi.jpg",
-      profileUrl: "https://example.com/profiles/instrument-2",
+      profileUrl: "http://localhost:3000/instruments/id#",
     },
     {
       title: "Sarod",
       imageUrl: "./src/assets/Sarod.jpg",
-      profileUrl: "https://example.com/profiles/instrument-4",
+      profileUrl: "http://localhost:3000/instruments/id#",
     },
   ];
 
@@ -30,22 +31,22 @@ export const AllInstrument = () => {
     {
       title: "Flute",
       imageUrl: "./src/assets/flute.jpg",
-      profileUrl: "https://example.com/profiles/instrument-6",
+      profileUrl: "http://localhost:3000/instruments/id#",
     },
     {
       title: "Shankh",
       imageUrl: "./src/assets/shankh.jpeg",
-      profileUrl: "https://example.com/profiles/instrument-5",
+      profileUrl: "http://localhost:3000/instruments/id#",
     },
     {
       title: "Shehnai",
       imageUrl: "./src/assets/shehnai.jpeg",
-      profileUrl: "https://example.com/profiles/instrument-7",
+      profileUrl: "http://localhost:3000/instruments/id#",
     },
     {
       title: "Sundri",
       imageUrl: "./src/assets/sundri.png",
-      profileUrl: "https://example.com/profiles/instrument-8",
+      profileUrl: "http://localhost:3000/instruments/id#",
     },
   ];
 
