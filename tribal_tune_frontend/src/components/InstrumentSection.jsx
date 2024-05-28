@@ -1,14 +1,37 @@
-import React from "react";
-import { Card } from "./Card"; // Assuming Card component is defined in a separate file
+import React, { useEffect, useState } from "react";
+import {Card}  from "./Card"; // Assuming Card component is defined in a separate file
+import service from "../appwrite/service.js"; // Correct import path
 
 export const InstrumentSection = ({
-  instruments,
+  category,
   currentIndex,
   handlePrev,
   handleNext,
   sectionTitle,
 }) => {
-  const visibleCards = instruments.slice(currentIndex, currentIndex + 3);
+
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      setLoading(true);
+      const response = await service.getPostsByCategory(category);
+      if (response) {
+        setItems(response.documents); // Assuming the response contains a 'documents' array
+        console.log(response.documents);
+      }
+      setLoading(false);
+    };
+
+    fetchItems();
+  }, [category]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  const visibleCards = items.slice(currentIndex, currentIndex + 3);
 
   return (
     <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">

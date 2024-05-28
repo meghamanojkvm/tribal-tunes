@@ -4,51 +4,51 @@ import { InstrumentSection } from "../components/InstrumentSection"; // Import t
 export const AllInstrument = () => {
   const [currentStringIndex, setCurrentStringIndex] = useState(0);
   const [currentBlownIndex, setCurrentBlownIndex] = useState(0);
-  const stringInstruments = [
-    {
-      title: "Veena",
-      imageUrl: "./src/assets/Veena.jpg",
-      profileUrl: "https://example.com/profiles/delba",
-    },
-    {
-      title: "Santoor",
-      imageUrl: "./src/assets/santoor.jpg",
-      profileUrl: "https://example.com/profiles/instrument-3",
-    },
-    {
-      title: "Tumbi",
-      imageUrl: "./src/assets/Tumbi.jpg",
-      profileUrl: "https://example.com/profiles/instrument-2",
-    },
-    {
-      title: "Sarod",
-      imageUrl: "./src/assets/Sarod.jpg",
-      profileUrl: "https://example.com/profiles/instrument-4",
-    },
-  ];
+  // const stringInstruments = [
+  //   {
+  //     title: "Veena",
+  //     imageUrl: "./src/assets/Veena.jpg",
+  //     profileUrl: "https://example.com/profiles/delba",
+  //   },
+  //   {
+  //     title: "Santoor",
+  //     imageUrl: "./src/assets/santoor.jpg",
+  //     profileUrl: "https://example.com/profiles/instrument-3",
+  //   },
+  //   {
+  //     title: "Tumbi",
+  //     imageUrl: "./src/assets/Tumbi.jpg",
+  //     profileUrl: "https://example.com/profiles/instrument-2",
+  //   },
+  //   {
+  //     title: "Sarod",
+  //     imageUrl: "./src/assets/Sarod.jpg",
+  //     profileUrl: "https://example.com/profiles/instrument-4",
+  //   },
+  // ];
 
-  const blownInstruments = [
-    {
-      title: "Flute",
-      imageUrl: "./src/assets/flute.jpg",
-      profileUrl: "https://example.com/profiles/instrument-6",
-    },
-    {
-      title: "Shankh",
-      imageUrl: "./src/assets/shankh.jpeg",
-      profileUrl: "https://example.com/profiles/instrument-5",
-    },
-    {
-      title: "Shehnai",
-      imageUrl: "./src/assets/shehnai.jpeg",
-      profileUrl: "https://example.com/profiles/instrument-7",
-    },
-    {
-      title: "Sundri",
-      imageUrl: "./src/assets/sundri.png",
-      profileUrl: "https://example.com/profiles/instrument-8",
-    },
-  ];
+  // const blownInstruments = [
+  //   {
+  //     title: "Flute",
+  //     imageUrl: "./src/assets/flute.jpg",
+  //     profileUrl: "https://example.com/profiles/instrument-6",
+  //   },
+  //   {
+  //     title: "Shankh",
+  //     imageUrl: "./src/assets/shankh.jpeg",
+  //     profileUrl: "https://example.com/profiles/instrument-5",
+  //   },
+  //   {
+  //     title: "Shehnai",
+  //     imageUrl: "./src/assets/shehnai.jpeg",
+  //     profileUrl: "https://example.com/profiles/instrument-7",
+  //   },
+  //   {
+  //     title: "Sundri",
+  //     imageUrl: "./src/assets/sundri.png",
+  //     profileUrl: "https://example.com/profiles/instrument-8",
+  //   },
+  // ];
 
   const handlePrevString = () => {
     setCurrentStringIndex((prevIndex) =>
@@ -163,7 +163,7 @@ export const AllInstrument = () => {
 
         {/* String Instruments Section */}
         <InstrumentSection
-          instruments={stringInstruments}
+          category="String"
           currentIndex={currentStringIndex}
           handlePrev={handlePrevString}
           handleNext={handleNextString}
@@ -172,7 +172,7 @@ export const AllInstrument = () => {
 
         {/* Blown Instruments Section */}
         <InstrumentSection
-          instruments={blownInstruments}
+          category="Solid"
           currentIndex={currentBlownIndex}
           handlePrev={handlePrevBlown}
           handleNext={handleNextBlown}
