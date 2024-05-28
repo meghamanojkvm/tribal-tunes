@@ -47,7 +47,7 @@ export const ShowInstrument = () => {
           <Description title="Description" content={descriptionContent} sections={descriptionSections} />
         </div>
         <Header title="Audio" />
-        <Audio src="https://your-audio-source-url.com" />
+        <Audio src= "/src/assets/ringtone-shankh-1101.mp3 " />
       </section>
     </div>
   );
