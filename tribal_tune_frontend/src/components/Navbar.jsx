@@ -49,7 +49,7 @@ export const Navbar = () => {
           </ul>
         </div>
         <div className="hidden lg:block">
-          <div className="rounded-md bg-amber-950 hover:bg-amber-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
+          <div className="rounded-md bg-amber-950 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-amber-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
             {" "}
             {user.current ? (
               <>

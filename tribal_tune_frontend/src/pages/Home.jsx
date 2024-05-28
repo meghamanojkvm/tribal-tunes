@@ -5,7 +5,7 @@ export const Home = () => {
 
   return (
     <div>
-      <div className="flex flex-col items-center justify-center h-[85vh] bg-[url('./src/assets/b1.webp')] bg-cover bg-center ">
+      <div className="flex flex-col items-center justify-center h-[95vh] bg-[url('./src/assets/b1.webp')] bg-cover bg-center ">
         <h1 className="text-2xl font-bold text-white sm:text-4xl xl:text-5xl font-serif mb-4">
           Tribal Tunes
         </h1>
