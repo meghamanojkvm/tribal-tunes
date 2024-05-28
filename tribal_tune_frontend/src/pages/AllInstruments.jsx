@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { InstrumentSection } from "../components/InstrumentSection"; // Import the new component
 
 export const AllInstrument = () => {

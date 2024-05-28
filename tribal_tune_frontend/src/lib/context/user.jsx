@@ -2,6 +2,7 @@ import { ID } from "appwrite";
 import { createContext, useContext, useEffect, useState } from "react";
 import { account } from "../appwrite";
 
+
 const UserContext = createContext();
 
 export function useUser() {
