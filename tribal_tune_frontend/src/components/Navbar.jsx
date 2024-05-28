@@ -62,6 +62,17 @@ export const Navbar = () => {
                 Contact
               </button>
             </li>
+            {user.current ?(<li>
+            <button
+              className="w-full text-left text-sm font-semibold text-gray-800 hover:text-amber-800"
+              onClick={() => {
+                navigate("/addinstrument");
+                setMenuOpen(false);
+              }}
+            >
+              Add/Update Instrument
+            </button>
+          </li>): null }
           </ul>
         </div>
         <div className="hidden lg:block">
@@ -136,6 +147,16 @@ export const Navbar = () => {
               Contact
             </button>
           </li>
+
+          {user.current ?(<button
+              className="w-full text-left text-sm font-semibold text-gray-800 hover:text-amber-800"
+              onClick={() => {
+                navigate("/addinstrument");
+                setMenuOpen(false);
+              }}
+            >
+              Add/Update Instrument
+            </button>): null }
           <li>
             <div className="rounded-md bg-amber-950 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-amber-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
               {user.current ? (
