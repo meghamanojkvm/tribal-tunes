@@ -61,8 +61,8 @@ export const AddInstrument = () => {
           title: instrumentName,
           slug: instrumentName.toLowerCase().replace(/ /g, "-"),
           description: instrumentDescription,
-          image: imageFile.$url,
-          audio: audioFile.$url,
+          image: imageFile.$id,
+          audio: audioFile.$id,
         });
 
         if (response.$id) {

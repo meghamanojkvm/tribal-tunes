@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export const Card = (card) => {
   const user = useUser();
   const navigate = useNavigate();
-  console.log(card.title);
+  // console.log(card.title);
   // Assuming you have a profileUrl defined somewhere
   const profileUrl = "#"; // Replace with the actual profile URL
 

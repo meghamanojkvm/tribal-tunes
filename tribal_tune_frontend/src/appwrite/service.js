@@ -11,12 +11,14 @@ class Service {
     }
 
     async createPost({ title, slug, description, image, audio }) {
+        const imageUrl = `cloud.appwrite.io/v1/storage/buckets/${conf.appwriteImageBucketId}/files/${image}/view?project=${conf.appwriteProjectId}`
+        const audioUrl = `cloud.appwrite.io/v1/storage/buckets/${conf.appwriteAudioBucketId}/files/${audio}/view?project=${conf.appwriteProjectId}`
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 ID.unique(),
-                { title, description, image, audio }
+                { title, description, image: imageUrl, audio: audioUrl }
             );
         } catch (error) {
             console.error("Appwrite service :: createPost :: error", error);
