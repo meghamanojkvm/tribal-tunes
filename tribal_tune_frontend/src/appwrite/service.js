@@ -11,8 +11,8 @@ class Service {
     }
 
     async createPost({ title, slug, description, image, audio }) {
-        const imageUrl = `cloud.appwrite.io/v1/storage/buckets/${conf.appwriteImageBucketId}/files/${image}/view?project=${conf.appwriteProjectId}`
-        const audioUrl = `cloud.appwrite.io/v1/storage/buckets/${conf.appwriteAudioBucketId}/files/${audio}/view?project=${conf.appwriteProjectId}`
+        const imageUrl = `https://cloud.appwrite.io/v1/storage/buckets/${conf.appwriteImageBucketId}/files/${image}/view?project=${conf.appwriteProjectId}&mode=admi`
+        const audioUrl = `https://cloud.appwrite.io/v1/storage/buckets/${conf.appwriteAudioBucketId}/files/${audio}/view?project=${conf.appwriteProjectId}&mode=admi`
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,

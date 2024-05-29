@@ -61,6 +61,7 @@ export const AddInstrument = () => {
           title: instrumentName,
           slug: instrumentName.toLowerCase().replace(/ /g, "-"),
           description: instrumentDescription,
+          category: instrumentCategory,
           image: imageFile.$id,
           audio: audioFile.$id,
         });
@@ -149,10 +150,13 @@ export const AddInstrument = () => {
                   Instrument Category
                 </label>
                 <select
-                  className=" mt-4 flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                  className="mt-4 flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   id="category"
                   value={instrumentCategory}
-                  onChange={(e) => setInstrumentCategory(e.target.value)}
+                  onChange={(e) => {
+                    setInstrumentCategory(e.target.value);
+                    console.log(instrumentCategory); // Log the new value instead of the previous state
+                  }}
                 >
                   <option value="">Select Category</option>
                   <option value="String">String</option>
