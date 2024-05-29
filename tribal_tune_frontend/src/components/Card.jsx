@@ -45,7 +45,7 @@ export const Card = (card) => {
       {/* add button ends */}
       <div className="absolute bottom-4 left-4 text-left">
         <h1 className="text-lg font-semibold text-white">{card.title}</h1>
-        <p className="mt-2 text-sm text-gray-300">{card.description}</p>
+        <p className="mt-2 text-sm text-gray-300">{card.description.substring(0,150)}</p>
         <button
           onClick={() => navigate("/instruments/:"+ card.$id)} // Update the href with the actual profile URL
           className="mt-2 inline-flex items-center text-sm font-semibold text-white"
