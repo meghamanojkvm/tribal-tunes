@@ -47,7 +47,7 @@ export const AddInstrument = () => {
   };
 
   const handleAddInstrument = async () => {
-    if (!selectedFile || !selectedAudio || !instrumentName || !instrumentCategory || !instrumentDescription) {
+    if (!selectedFile || !selectedAudio || !instrumentName || instrumentCategory === "" || !instrumentDescription) {
       alert("Please fill out all fields and upload both image and audio files.");
       return;
     }
@@ -74,7 +74,7 @@ export const AddInstrument = () => {
           setSelectedAudio(null);
           setAudioPreview(null);
           setInstrumentName("");
-          setInstrumentCategory("");
+          // setInstrumentCategory("");
           setInstrumentDescription("");
         } else {
           alert("Failed to add instrument. Please try again later.");
@@ -153,12 +153,11 @@ export const AddInstrument = () => {
                   className="mt-4 flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                   id="category"
                   value={instrumentCategory}
-                  onChange={(e) => {
-                    setInstrumentCategory(e.target.value);
-                    console.log(instrumentCategory); // Log the new value instead of the previous state
+                  placeholder="Select Category"
+                  onChange={(e) => { setInstrumentCategory(e.currentTarget.value) // Log the new value instead of the previous state
                   }}
                 >
-                  <option value="">Select Category</option>
+                   <option value="">Choose the value</option>
                   <option value="String">String</option>
                   <option value="Blowen">Blowen</option>
                   <option value="Percussion">Percussion</option>

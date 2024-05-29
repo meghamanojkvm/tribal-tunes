@@ -172,7 +172,7 @@ export const AllInstrument = () => {
 
         {/* Blown Instruments Section */}
         <InstrumentSection
-          category="Solid"
+          category="Blown"
           currentIndex={currentBlownIndex}
           handlePrev={handlePrevBlown}
           handleNext={handleNextBlown}

@@ -10,7 +10,7 @@ class Service {
         this.bucket = new Storage(this.client);
     }
 
-    async createPost({ title, slug, description, image, audio }) {
+    async createPost({ title, slug, description, image, audio, category }) {
         const imageUrl = `https://cloud.appwrite.io/v1/storage/buckets/${conf.appwriteImageBucketId}/files/${image}/view?project=${conf.appwriteProjectId}&mode=admi`
         const audioUrl = `https://cloud.appwrite.io/v1/storage/buckets/${conf.appwriteAudioBucketId}/files/${audio}/view?project=${conf.appwriteProjectId}&mode=admi`
         try {
@@ -18,7 +18,7 @@ class Service {
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 ID.unique(),
-                { title, description, image: imageUrl, audio: audioUrl }
+                { title, description, image: imageUrl, audio: audioUrl, category }
             );
         } catch (error) {
             console.error("Appwrite service :: createPost :: error", error);
