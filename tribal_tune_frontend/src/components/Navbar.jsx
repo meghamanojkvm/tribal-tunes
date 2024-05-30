@@ -56,7 +56,7 @@ export const Navbar = () => {
               <button
                 className="text-sm font-semibold text-gray-800 hover:text-amber-800"
                 onClick={() => {
-                  navigate("#");
+                  navigate("/contactUs");
                 }}
               >
                 Contact
@@ -70,7 +70,7 @@ export const Navbar = () => {
                 setMenuOpen(false);
               }}
             >
-              Add/Update Instrument
+              Add Instrument
             </button>
           </li>): null }
           </ul>
