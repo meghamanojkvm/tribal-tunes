@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useUser } from "../lib/context/user";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const user = useUser();
-
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -63,6 +64,9 @@ export const Login = () => {
                     onClick={() => {
                       console.log(user);
                       user.login(email, password);
+                      if (user) {
+                        navigate("/instruments");
+                      }
                     }}
                   >
                     Login
