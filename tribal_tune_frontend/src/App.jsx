@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { AllInstrument } from "./pages/AllInstruments";
 import { AddInstrument } from "./pages/AddInstrument";
 import { ShowInstrument } from "./pages/ShowInstrument";
+import { ContactUs } from "./pages/ContactUs";
 
 import { AboutUs } from "./pages/AboutUs";
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/addinstrument" element={<AddInstrument />} />
           <Route path="/instruments/:id" element={<ShowInstrument />} />
           <Route path="/aboutUs" element={<AboutUs />} />
+          <Route path="/contactUs" element={<ContactUs />} />
         </Routes>
       </BrowserRouter>
     </UserProvider>
