@@ -39,11 +39,8 @@ export const ShowInstrument = () => {
 
   const descriptionSections = [
     {
-      heading: "Types",
-      items: [
-        "Gayaki Sarod: Emulates the human voice, favored for its lyrical expression, ideal for solo performances.",
-        "Chikari Sarod: Known for its rhythmic accompaniment, featuring thinner chikari strings.",
-      ],
+      heading: "",
+      items: [],
     },
   ];
 
@@ -102,10 +99,7 @@ export const ShowInstrument = () => {
         </div>
         <div className="mt-10 ml-24 flex items-center justify-left space-x-12">
           <Header title="Audio" className="text-3xl font-bold text-amber-950" />
-          <Audio
-            src={instrument.audio}
-            className="w-full max-w-5xl"
-          />
+          <Audio src={instrument.audio} className="w-full max-w-5xl" />
         </div>
       </section>
     </div>
