@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Card}  from "./Card"; // Assuming Card component is defined in a separate file
+import { Card } from "./Card"; // Assuming Card component is defined in a separate file
 import service from "../appwrite/service.js"; // Correct import path
 
 export const InstrumentSection = ({
@@ -9,7 +9,6 @@ export const InstrumentSection = ({
   handleNext,
   sectionTitle,
 }) => {
-
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -28,7 +27,7 @@ export const InstrumentSection = ({
   }, [category]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div></div>;
   }
 
   const visibleCards = items.slice(currentIndex, currentIndex + 3);
