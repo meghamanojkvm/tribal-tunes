@@ -2,9 +2,6 @@ import React from "react";
 import { useUser } from "../lib/context/user";
 import { useNavigate } from "react-router-dom";
 import service from "../appwrite/service";
-import conf from "../conf/conf.js";
-
-import { Client, Databases, Query } from "appwrite";
 
 
 export const Card = (card) => {
@@ -12,35 +9,14 @@ export const Card = (card) => {
   const navigate = useNavigate();
   // console.log(card.title);
   // Assuming you have a profileUrl defined somewhere
-  const profileUrl = "#"; // Replace with the actual profile URL
-
-        const client = new Client()
-        .setEndpoint("https://cloud.appwrite.io/v1")
-        .setProject("664ecabe000daca9ddec")
-
-      const databases = new Databases(client);
-
-      let promise = databases.listDocuments(
-        "6650e8f400203f5cc92e",
-        "6650e90c001e7c25248b",
-        [
-            Query.equal('title',Card.name)
-        ]
-      );
-
-      promise.then(function (response) {
-      console.log(response);
-      }, function (error) {
-      console.log(error);
-      });
-
+  //const profileUrl = "#"; // Replace with the actual profile URL
 
 
   const handleDelete = async () => {
     const confirmation = window.confirm("Are you sure you want to delete this post?");
     if (confirmation) {
       try {
-        await service.deletePost(promise);
+        await service.deletePost(card.$id);
         alert("Post deleted successfully.");
         // Additional actions after successful deletion, e.g., refreshing the list
       } catch (error) {
