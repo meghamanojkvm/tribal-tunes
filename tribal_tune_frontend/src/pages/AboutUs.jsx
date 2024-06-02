@@ -9,7 +9,7 @@ export const AboutUs = () => {
       <div
         className="relative h-[50vh] bg-cover bg-center"
         style={{
-          backgroundImage: "url(${b2})",
+          backgroundImage: `url(${b2})`,
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50">

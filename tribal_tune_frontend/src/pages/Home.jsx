@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import b1 from "../assets/b1.webp";
+import b1 from "../assets/b1.png";
 
 export const Home = () => {
   const navigate = useNavigate();
