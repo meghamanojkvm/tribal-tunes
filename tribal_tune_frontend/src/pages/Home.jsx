@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router-dom";
+import b1 from "../assets/b1.webp";
 
 export const Home = () => {
   const navigate = useNavigate();
 
   return (
     <div>
-      <div className="flex flex-col items-center justify-center h-[95vh] bg-[url('./src/assets/b1.webp')] bg-cover bg-center ">
+      <div
+        className={`flex flex-col items-center justify-center h-[95vh] bg-[url(${b1})] bg-cover bg-center`}
+      >
         <h1 className="text-2xl font-bold text-white sm:text-4xl xl:text-5xl font-serif mb-4">
           Tribal Tunes
         </h1>

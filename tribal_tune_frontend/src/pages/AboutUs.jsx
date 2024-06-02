@@ -1,10 +1,15 @@
+import b2 from "../assets/b2.png";
+import spirit from "../assets/spirit.jpeg";
+import vision from "../assets/vision.jpeg";
+import qr from "../assets/qr.jpeg";
+
 export const AboutUs = () => {
   return (
     <div>
       <div
         className="relative h-[50vh] bg-cover bg-center"
         style={{
-          backgroundImage: "url('./src/assets/b2.png')",
+          backgroundImage: "url(${b2})",
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50">
@@ -43,7 +48,7 @@ export const AboutUs = () => {
             </div>
             <div class="md:w-1/2">
               <img
-                src="./src/assets/spirit.jpeg"
+                src={spirit}
                 alt="Getting Started"
                 class="rounded-lg h-96 md:h-full w-full object-cover"
               />
@@ -55,7 +60,7 @@ export const AboutUs = () => {
         <div class="flex flex-col md:flex-row mt-8 py-16">
           <div class="md:w-1/2 order-2 md:order-1">
             <img
-              src="./src/assets/vision.jpeg"
+              src={vision}
               alt="Getting Started"
               class="rounded-lg h-96 md:h-full w-full object-cover"
             />
@@ -94,7 +99,7 @@ export const AboutUs = () => {
             </div>
             <div class="md:w-1/2">
               <img
-                src="./src/assets/qr.jpeg"
+                src={qr}
                 alt="Getting Started"
                 class="rounded-lg h-96 md:h-full w-full object-cover"
               />
