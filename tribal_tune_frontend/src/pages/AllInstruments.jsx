@@ -1,54 +1,45 @@
 import React, { useState, useEffect } from "react";
 import { InstrumentSection } from "../components/InstrumentSection"; // Import the new component
+import service from "../appwrite/service.js";
 
 export const AllInstrument = () => {
   const [currentStringIndex, setCurrentStringIndex] = useState(0);
   const [currentBlownIndex, setCurrentBlownIndex] = useState(0);
-  // const stringInstruments = [
-  //   {
-  //     title: "Veena",
-  //     imageUrl: "./src/assets/Veena.jpg",
-  //     profileUrl: "https://example.com/profiles/delba",
-  //   },
-  //   {
-  //     title: "Santoor",
-  //     imageUrl: "./src/assets/santoor.jpg",
-  //     profileUrl: "https://example.com/profiles/instrument-3",
-  //   },
-  //   {
-  //     title: "Tumbi",
-  //     imageUrl: "./src/assets/Tumbi.jpg",
-  //     profileUrl: "https://example.com/profiles/instrument-2",
-  //   },
-  //   {
-  //     title: "Sarod",
-  //     imageUrl: "./src/assets/Sarod.jpg",
-  //     profileUrl: "https://example.com/profiles/instrument-4",
-  //   },
-  // ];
+  const [currentPrecussionIndex, setCurrentPrecussionIndex] = useState(0);
+  const [currentSolidIndex, setCurrentSolidIndex] = useState(0);
+  const [currentOtherIndex, setCurrentOtherIndex] = useState(0);
 
-  // const blownInstruments = [
-  //   {
-  //     title: "Flute",
-  //     imageUrl: "./src/assets/flute.jpg",
-  //     profileUrl: "https://example.com/profiles/instrument-6",
-  //   },
-  //   {
-  //     title: "Shankh",
-  //     imageUrl: "./src/assets/shankh.jpeg",
-  //     profileUrl: "https://example.com/profiles/instrument-5",
-  //   },
-  //   {
-  //     title: "Shehnai",
-  //     imageUrl: "./src/assets/shehnai.jpeg",
-  //     profileUrl: "https://example.com/profiles/instrument-7",
-  //   },
-  //   {
-  //     title: "Sundri",
-  //     imageUrl: "./src/assets/sundri.png",
-  //     profileUrl: "https://example.com/profiles/instrument-8",
-  //   },
-  // ];
+  const [loading, setLoading] = useState(true);
+
+  const getItems = (category) => {
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+      const fetchItems = async () => {
+        setLoading(true);
+        const response = await service.getPostsByCategory(category);
+        if (response) {
+          setItems(response.documents); // Assuming the response contains a 'documents' array
+          console.log(response.documents[0].$id);
+        }
+        setLoading(false);
+      };
+
+      fetchItems();
+    }, [category]);
+
+    return items;
+  };
+
+  const stringInstruments = getItems("String");
+  const blownInstruments = getItems("Blowen");
+  const precussionInstruments = getItems("Percussion");
+  const solidInstruments = getItems("Solid");
+  const otherInstruments = getItems("Others");
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   const handlePrevString = () => {
     setCurrentStringIndex((prevIndex) =>
@@ -71,6 +62,42 @@ export const AllInstrument = () => {
   const handleNextBlown = () => {
     setCurrentBlownIndex((prevIndex) =>
       prevIndex === blownInstruments.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handleNextPrecussion = () => {
+    setCurrentPrecussionIndex((prevIndex) =>
+      prevIndex === precussionInstruments.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrevPrecussion = () => {
+    setCurrentPrecussionIndex((prevIndex) =>
+      prevIndex === 0 ? precussionInstruments.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNextSolid = () => {
+    setCurrentSolidIndex((prevIndex) =>
+      prevIndex === solidInstruments.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrevSolid = () => {
+    setCurrentSolidIndex((prevIndex) =>
+      prevIndex === 0 ? solidInstruments.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNextOther = () => {
+    setCurrentOtherIndex((prevIndex) =>
+      prevIndex === otherInstruments.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrevOther = () => {
+    setCurrentOtherIndex((prevIndex) =>
+      prevIndex === 0 ? otherInstruments.length - 1 : prevIndex - 1
     );
   };
 
@@ -172,11 +199,38 @@ export const AllInstrument = () => {
 
         {/* Blown Instruments Section */}
         <InstrumentSection
-          category="Blown"
+          category="Blowen"
           currentIndex={currentBlownIndex}
           handlePrev={handlePrevBlown}
           handleNext={handleNextBlown}
           sectionTitle="Blown Instruments"
+        />
+
+        {/* Precussion Instrument Section */}
+        <InstrumentSection
+          category="Percussion"
+          currentIndex={currentPrecussionIndex}
+          handlePrev={handlePrevPrecussion}
+          handleNext={handleNextPrecussion}
+          sectionTitle="Percussion Instruments"
+        />
+
+        {/* Solid Instrument Section */}
+        <InstrumentSection
+          category="Solid"
+          currentIndex={currentSolidIndex}
+          handlePrev={handlePrevSolid}
+          handleNext={handleNextSolid}
+          sectionTitle="Solid Instruments"
+        />
+
+        {/* Other Instrument Section */}
+        <InstrumentSection
+          category="Others"
+          currentIndex={currentOtherIndex}
+          handlePrev={handlePrevOther}
+          handleNext={handleNextOther}
+          sectionTitle="Other Instruments"
         />
       </section>
     </div>
