@@ -7,7 +7,8 @@ export const Home = () => {
   return (
     <div>
       <div
-        className={`flex flex-col items-center justify-center h-[95vh] bg-[url(${b1})] bg-cover bg-center`}
+        className={`flex flex-col items-center justify-center h-[95vh]  bg-cover bg-center`}
+        style={{ backgroundImage: `url(${b1})` }}
       >
         <h1 className="text-2xl font-bold text-white sm:text-4xl xl:text-5xl font-serif mb-4">
           Tribal Tunes
