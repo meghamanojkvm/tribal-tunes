@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useUser } from "../lib/context/user";
 import { useNavigate } from "react-router-dom";
+import b3 from "../assets/b3.avif";
 
 export const Login = () => {
   const user = useUser();
@@ -94,7 +95,7 @@ export const Login = () => {
         <div class="h-full w-full">
           <img
             className="mx-auto h-full w-full rounded-md object-cover mt-[-2rem]"
-            src="./src/assets/b3.avif"
+            src={b3}
             alt=""
           />
         </div>

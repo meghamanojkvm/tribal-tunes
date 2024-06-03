@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { InstrumentSection } from "../components/InstrumentSection"; // Import the new component
 import service from "../appwrite/service.js";
+import banner from "../assets/banner.png";
 
 export const AllInstrument = () => {
   const [currentStringIndex, setCurrentStringIndex] = useState(0);
@@ -111,7 +112,7 @@ export const AllInstrument = () => {
           <div className="absolute inset-0">
             <img
               className="object-cover object-right w-full h-full lg:object-center"
-              src="./src/assets/banner.png"
+              src={banner}
               alt=""
             />
           </div>
