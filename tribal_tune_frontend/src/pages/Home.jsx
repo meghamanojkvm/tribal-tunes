@@ -13,7 +13,7 @@ export const Home = () => {
         <h1 className="text-2xl font-bold text-white sm:text-4xl xl:text-5xl font-serif mb-4">
           Tribal Tunes
         </h1>
-        <p className="text-xl font-semibold text-white sm:text-xl xl:text-xl font-serif mb-8 ">
+        <p className="text-xl font-semibold text-white sm:text-xl xl:text-xl font-serif mb-8 text-center ">
           Experience the rhythm of the Indian tribe with our unique blend of
           traditional and contemporary music.
         </p>
