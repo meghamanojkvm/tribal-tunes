@@ -58,7 +58,7 @@ export const InstrumentSection = ({ instruments, sectionTitle }) => {
         {sectionTitle}
       </h2>
       <div className="instrument-container flex items-center justify-between">
-        <div className="flex justify-center">
+        <div className="hidden sm:flex justify-center">
           <button
             onClick={handlePrev}
             className="text-white bg-gray-800 hover:bg-gray-700 p-2 rounded-full focus:outline-none text-sm"
@@ -71,7 +71,7 @@ export const InstrumentSection = ({ instruments, sectionTitle }) => {
             <Card key={index} {...card} />
           ))}
         </div>
-        <div className="flex justify-center">
+        <div className="hidden sm:flex justify-center">
           <button
             onClick={handleNext}
             className="text-white bg-gray-800 hover:bg-gray-700 p-2 rounded-full focus:outline-none text-sm"
