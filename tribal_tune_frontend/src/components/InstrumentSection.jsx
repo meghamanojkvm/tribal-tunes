@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSwipeable } from "react-swipeable"; // Import the swipeable library
 import { Card } from "./Card"; // Assuming Card component is defined in a separate file
 
 export const InstrumentSection = ({ instruments, sectionTitle }) => {
@@ -43,29 +44,37 @@ export const InstrumentSection = ({ instruments, sectionTitle }) => {
       ? [...visibleCards, ...instruments.slice(0, cardsPerPage - visibleCards.length)]
       : visibleCards;
 
+  // Swipe handlers
+  const handlers = useSwipeable({
+    onSwipedLeft: () => handleNext(),
+    onSwipedRight: () => handlePrev(),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
+
   return (
-    <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+    <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl" {...handlers}>
       <h2 className="mt-10 mb-4 text-2xl font-semibold text-gray-900 text-center font-serif bg-brown-500 py-2 px-4 rounded-lg shadow-lg">
         {sectionTitle}
       </h2>
-      <div className="instrument-container flex items-center justify-center">
-        <div className="w-8 h-8 flex justify-center items-center rounded-full overflow-hidden mx-4">
+      <div className="instrument-container flex items-center justify-between">
+        <div className="flex justify-center">
           <button
             onClick={handlePrev}
-            className="text-white bg-gray-800 hover:bg-gray-700 p-4 rounded-full focus:outline-none text-sm"
+            className="text-white bg-gray-800 hover:bg-gray-700 p-2 rounded-full focus:outline-none text-sm"
           >
             ←
           </button>
         </div>
-        <div className="flex space-x-12">
+        <div className="flex flex-wrap justify-center space-x-4 sm:space-x-6 lg:space-x-12">
           {adjustedVisibleCards.map((card, index) => (
             <Card key={index} {...card} />
           ))}
         </div>
-        <div className="w-8 h-8 flex justify-center items-center rounded-full overflow-hidden mx-4">
+        <div className="flex justify-center">
           <button
             onClick={handleNext}
-            className="text-white bg-gray-800 hover:bg-gray-700 p-4 rounded-full focus:outline-none text-sm"
+            className="text-white bg-gray-800 hover:bg-gray-700 p-2 rounded-full focus:outline-none text-sm"
           >
             →
           </button>
