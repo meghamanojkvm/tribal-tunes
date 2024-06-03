@@ -4,12 +4,6 @@ import service from "../appwrite/service.js";
 import banner from "../assets/banner.png";
 
 export const AllInstrument = () => {
-  const [currentStringIndex, setCurrentStringIndex] = useState(0);
-  const [currentBlownIndex, setCurrentBlownIndex] = useState(0);
-  const [currentPrecussionIndex, setCurrentPrecussionIndex] = useState(0);
-  const [currentSolidIndex, setCurrentSolidIndex] = useState(0);
-  const [currentOtherIndex, setCurrentOtherIndex] = useState(0);
-
   const [loading, setLoading] = useState(true);
 
   const getItems = (category) => {
@@ -34,73 +28,13 @@ export const AllInstrument = () => {
 
   const stringInstruments = getItems("String");
   const blownInstruments = getItems("Blowen");
-  const precussionInstruments = getItems("Percussion");
+  const percussionInstruments = getItems("Percussion");
   const solidInstruments = getItems("Solid");
   const otherInstruments = getItems("Others");
 
   if (loading) {
     return <div>Loading...</div>;
   }
-
-  const handlePrevString = () => {
-    setCurrentStringIndex((prevIndex) =>
-      prevIndex === 0 ? stringInstruments.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNextString = () => {
-    setCurrentStringIndex((prevIndex) =>
-      prevIndex === stringInstruments.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const handlePrevBlown = () => {
-    setCurrentBlownIndex((prevIndex) =>
-      prevIndex === 0 ? blownInstruments.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNextBlown = () => {
-    setCurrentBlownIndex((prevIndex) =>
-      prevIndex === blownInstruments.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const handleNextPrecussion = () => {
-    setCurrentPrecussionIndex((prevIndex) =>
-      prevIndex === precussionInstruments.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const handlePrevPrecussion = () => {
-    setCurrentPrecussionIndex((prevIndex) =>
-      prevIndex === 0 ? precussionInstruments.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNextSolid = () => {
-    setCurrentSolidIndex((prevIndex) =>
-      prevIndex === solidInstruments.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const handlePrevSolid = () => {
-    setCurrentSolidIndex((prevIndex) =>
-      prevIndex === 0 ? solidInstruments.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNextOther = () => {
-    setCurrentOtherIndex((prevIndex) =>
-      prevIndex === otherInstruments.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const handlePrevOther = () => {
-    setCurrentOtherIndex((prevIndex) =>
-      prevIndex === 0 ? otherInstruments.length - 1 : prevIndex - 1
-    );
-  };
 
   return (
     <div className="bg-gradient-to-t from-gray-100 to-white">
@@ -191,46 +125,31 @@ export const AllInstrument = () => {
 
         {/* String Instruments Section */}
         <InstrumentSection
-          category="String"
-          currentIndex={currentStringIndex}
-          handlePrev={handlePrevString}
-          handleNext={handleNextString}
+          instruments={stringInstruments}
           sectionTitle="String Instruments"
         />
 
         {/* Blown Instruments Section */}
         <InstrumentSection
-          category="Blowen"
-          currentIndex={currentBlownIndex}
-          handlePrev={handlePrevBlown}
-          handleNext={handleNextBlown}
+          instruments={blownInstruments}
           sectionTitle="Blown Instruments"
         />
 
-        {/* Precussion Instrument Section */}
+        {/* Percussion Instrument Section */}
         <InstrumentSection
-          category="Percussion"
-          currentIndex={currentPrecussionIndex}
-          handlePrev={handlePrevPrecussion}
-          handleNext={handleNextPrecussion}
+          instruments={percussionInstruments}
           sectionTitle="Percussion Instruments"
         />
 
         {/* Solid Instrument Section */}
         <InstrumentSection
-          category="Solid"
-          currentIndex={currentSolidIndex}
-          handlePrev={handlePrevSolid}
-          handleNext={handleNextSolid}
+          instruments={solidInstruments}
           sectionTitle="Solid Instruments"
         />
 
         {/* Other Instrument Section */}
         <InstrumentSection
-          category="Others"
-          currentIndex={currentOtherIndex}
-          handlePrev={handlePrevOther}
-          handleNext={handleNextOther}
+          instruments={otherInstruments}
           sectionTitle="Other Instruments"
         />
       </section>

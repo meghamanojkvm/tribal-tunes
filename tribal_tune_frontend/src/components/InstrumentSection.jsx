@@ -1,36 +1,47 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "./Card"; // Assuming Card component is defined in a separate file
-import service from "../appwrite/service.js"; // Correct import path
 
-export const InstrumentSection = ({
-  category,
-  currentIndex,
-  handlePrev,
-  handleNext,
-  sectionTitle,
-}) => {
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(true);
+export const InstrumentSection = ({ instruments, sectionTitle }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardsPerPage, setCardsPerPage] = useState(3);
 
+  // Function to update the number of cards per page based on screen size
+  const updateCardsPerPage = () => {
+    if (window.innerWidth < 640) {
+      setCardsPerPage(1); // Small screens
+    } else if (window.innerWidth < 1024) {
+      setCardsPerPage(2); // Medium screens
+    } else {
+      setCardsPerPage(3); // Large screens
+    }
+  };
+
+  // Update the number of cards per page on mount and when the window is resized
   useEffect(() => {
-    const fetchItems = async () => {
-      setLoading(true);
-      const response = await service.getPostsByCategory(category);
-      if (response) {
-        setItems(response.documents); // Assuming the response contains a 'documents' array
-        console.log(response.documents[0].$id);
-      }
-      setLoading(false);
-    };
+    updateCardsPerPage();
+    window.addEventListener("resize", updateCardsPerPage);
+    return () => window.removeEventListener("resize", updateCardsPerPage);
+  }, []);
 
-    fetchItems();
-  }, [category]);
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex - cardsPerPage < 0 ? instruments.length - cardsPerPage : prevIndex - cardsPerPage
+    );
+  };
 
-  if (loading) {
-    return <div></div>;
-  }
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex + cardsPerPage >= instruments.length ? 0 : prevIndex + cardsPerPage
+    );
+  };
 
-  const visibleCards = items.slice(currentIndex, currentIndex + 3);
+  const visibleCards = instruments.slice(currentIndex, currentIndex + cardsPerPage);
+
+  // Adjust the visibleCards to always show `cardsPerPage` cards if there are enough instruments
+  const adjustedVisibleCards =
+    visibleCards.length < cardsPerPage && instruments.length >= cardsPerPage
+      ? [...visibleCards, ...instruments.slice(0, cardsPerPage - visibleCards.length)]
+      : visibleCards;
 
   return (
     <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
@@ -47,7 +58,7 @@ export const InstrumentSection = ({
           </button>
         </div>
         <div className="flex space-x-12">
-          {visibleCards.map((card, index) => (
+          {adjustedVisibleCards.map((card, index) => (
             <Card key={index} {...card} />
           ))}
         </div>
