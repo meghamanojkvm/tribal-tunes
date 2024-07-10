@@ -1,19 +1,19 @@
-# Tribal Tunes
+# Tribal Tunes🎶🎵🎼
 
 ## Website Link
 [https://tribal-tunes.vercel.app/](https://tribal-tunes.vercel.app/)
 
 ## Introduction
-Welcome to Tribal Tunes! This project is designed to enrich the visitor experience at the Indira Gandhi Rashtriya Manav Sangrahalaya in Bhopal, Madhya Pradesh. By integrating the unique sounds of traditional tribal musical instruments into the exhibits, we aim to create a more immersive and engaging experience for all visitors, with a special focus on accessibility for visually challenged individuals.
+Welcome to Tribal Tunes!🎹🎺🎼 This project is designed to enrich the visitor experience at the Indira Gandhi Rashtriya Manav Sangrahalaya in Bhopal, Madhya Pradesh. By integrating the unique sounds of traditional tribal musical instruments🪗🎷 into the exhibits, we aim to create a more immersive and engaging experience for all visitors, with a special focus on accessibility for visually challenged individuals.
 
 ## How to Use
 1. **Visit the Museum:** Head to the tribal musical instrument exhibits at the museum.
-2. **Scan QR Codes:** Find QR codes next to each instrument and scan them with your smartphone.
-3. **Explore:** Listen to the recorded sounds and learn about the cultural significance of each instrument through the dedicated web pages.
+2. **Scan QR Codes:** Find QR codes next to each instrument🎻🪕 and scan them with your smartphone.
+3. **Explore:** Listen👂🏻. to the recorded sounds🪈🎶 and learn about the cultural significance of each instrument🪗🎷 through the dedicated web pages.
 
 ## Features
 - **QR Code Integration:** Convenient access to instrument details and audio through QR codes.
-- **Informative Web Pages:** Each instrument has a page with descriptions, cultural backgrounds, and audio players.
+- **Informative Web Pages:** Each instrument🥁🪘 has a page with descriptions, cultural backgrounds, and audio players.
 - **Enhanced Experience:** A multi-sensory approach that enriches both visual and auditory engagement.
 
 ## Setup and Installation
@@ -69,10 +69,4 @@ Tribal Tunes features a robust and scalable architecture to ensure seamless perf
 ### Deployment
 - **Platform:** Vercel
   - Provides a streamlined deployment process for both frontend and backend services.
-
-## Contributing
-We welcome contributions to improve Tribal Tunes. Feel free to open issues or submit pull requests on [GitHub](https://github.com/your-repository-link).
-
-## License
-This project is licensed under the [MIT License](LICENSE).
 
