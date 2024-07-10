@@ -1,4 +1,4 @@
-# Tribal Tunes🎶🎵🎼
+# Tribal Tunes🪗🎷🎶
 
 ## Website Link
 [https://tribal-tunes.vercel.app/](https://tribal-tunes.vercel.app/)
